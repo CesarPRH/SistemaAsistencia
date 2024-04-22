@@ -1,0 +1,12 @@
+D:\practica\ProyectoAnalisisI\SistemaAsistencia\SistemaAsistencia.Contracts\bin\Debug\net7.0\Contracts.deps.json
+D:\practica\ProyectoAnalisisI\SistemaAsistencia\SistemaAsistencia.Contracts\bin\Debug\net7.0\Contracts.dll
+D:\practica\ProyectoAnalisisI\SistemaAsistencia\SistemaAsistencia.Contracts\bin\Debug\net7.0\Contracts.pdb
+D:\practica\ProyectoAnalisisI\SistemaAsistencia\SistemaAsistencia.Contracts\obj\Debug\net7.0\Contracts.csproj.AssemblyReference.cache
+D:\practica\ProyectoAnalisisI\SistemaAsistencia\SistemaAsistencia.Contracts\obj\Debug\net7.0\Contracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\practica\ProyectoAnalisisI\SistemaAsistencia\SistemaAsistencia.Contracts\obj\Debug\net7.0\Contracts.AssemblyInfoInputs.cache
+D:\practica\ProyectoAnalisisI\SistemaAsistencia\SistemaAsistencia.Contracts\obj\Debug\net7.0\Contracts.AssemblyInfo.cs
+D:\practica\ProyectoAnalisisI\SistemaAsistencia\SistemaAsistencia.Contracts\obj\Debug\net7.0\Contracts.csproj.CoreCompileInputs.cache
+D:\practica\ProyectoAnalisisI\SistemaAsistencia\SistemaAsistencia.Contracts\obj\Debug\net7.0\Contracts.dll
+D:\practica\ProyectoAnalisisI\SistemaAsistencia\SistemaAsistencia.Contracts\obj\Debug\net7.0\refint\Contracts.dll
+D:\practica\ProyectoAnalisisI\SistemaAsistencia\SistemaAsistencia.Contracts\obj\Debug\net7.0\Contracts.pdb
+D:\practica\ProyectoAnalisisI\SistemaAsistencia\SistemaAsistencia.Contracts\obj\Debug\net7.0\ref\Contracts.dll
