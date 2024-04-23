@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SistemaAsistencia.Contracts.SistemaAsistencia.Courses;
 using SistemaAsistencia.Contracts.SistemaAsistencia.CoursesInCareers;
 using SistemaAsistencia.Models;
 using SistemaAsistencia.Services.CareersInCourses;
@@ -52,7 +53,7 @@ namespace SistemaAsistencia.Controllers
         public IActionResult GetAssignment(Guid id)
         {
             CoursesCareers coursesCareers = _coursesInCareersService.GetAssignment(id);
-            if( coursesCareers != null )
+            if( coursesCareers == null )
             {
                 return NotFound();
             }
@@ -67,7 +68,67 @@ namespace SistemaAsistencia.Controllers
 
         }
 
-        //No se ha terminado.
+        [HttpPut("{id:guid}")]
+        //Perdon por la variable larga, es la mas entendible que pude pensar :(
+        public IActionResult UpsertAssignmentCourse(Guid id, UpsertCoursesInCareerAssignation request)
 
+        {
+            CoursesCareers existingAssignment = _coursesInCareersService.GetAssignment(id);
+
+            if(existingAssignment != null)
+            {
+                existingAssignment.CourseId = request.IdCourse;
+                existingAssignment.CareerId = request.IdCareer;
+
+                _coursesInCareersService.UpsertAssignmentCourse(existingAssignment);
+
+                var response = new AssignationResponse(
+                    existingAssignment.IdCourseInCareer,
+                    existingAssignment.CourseId,
+                    existingAssignment.CareerId,
+                    existingAssignment.CreatedAt,
+                    existingAssignment.LastTimeModified
+                    );
+                return Ok(response);
+            }
+            else
+            {
+                var newAssignation = new CoursesCareers(
+                    Guid.NewGuid(),
+                    request.IdCourse,
+                    request.IdCareer,
+                    DateTime.UtcNow,
+                    DateTime.UtcNow
+                    );
+                _coursesInCareersService.CreateAssignmentCourse(newAssignation);
+
+                var response = new CoursesCareers(
+                    newAssignation.IdCourseInCareer,
+                    newAssignation.CourseId,
+                    newAssignation.CareerId,
+                    newAssignation.CreatedAt,
+                    newAssignation.LastTimeModified
+                    );
+
+
+                return CreatedAtAction(
+                    actionName: nameof(GetAssignment),
+                    routeValues: new {id = newAssignation.IdCourseInCareer},
+                    value : response
+                    );
+            }
+
+        }
+        [HttpDelete("{id:guid}")]
+        public IActionResult DeleteAssignment(Guid id)
+        {
+            CoursesCareers Assignation = _coursesInCareersService.GetAssignment(id);
+            if(Assignation == null )
+            {
+                return NotFound();
+            }
+            _coursesInCareersService.DeleteAssignmentCourse(id);
+            return NoContent();
+        }
     }
 }
