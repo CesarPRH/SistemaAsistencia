@@ -7,7 +7,7 @@ using SistemaAsistencia.Services.CoursesInCareers;
 namespace SistemaAsistencia.Controllers
 {
     [ApiController]
-    [Route("CourseInCareer")]
+    [Route("courseInCareer")]
     /*
      * NOTA: Este controlador no se utilizara al final, ya que
      * Se piensa implementar CoursesCareer en CoursesControllers
@@ -17,7 +17,7 @@ namespace SistemaAsistencia.Controllers
     {
         private readonly CourseInCareersService _coursesInCareersService;
 
-        private CoursesInCareersControllers(ICourseInCareerService coursesInCareersService)
+        public CoursesInCareersControllers(ICourseInCareerService coursesInCareersService)
         {
             _coursesInCareersService = (CourseInCareersService?)coursesInCareersService;
         }
@@ -42,8 +42,31 @@ namespace SistemaAsistencia.Controllers
                 coursesCareer.CreatedAt,
                 coursesCareer.LastTimeModified
                 );
-            return Ok(response);
+            return CreatedAtAction(
+                actionName: nameof(GetAssignment),
+                routeValues: new {id = coursesCareer.IdCourseInCareer},
+                value: response );
         }
+
+        [HttpGet("{id:guid}")]
+        public IActionResult GetAssignment(Guid id)
+        {
+            CoursesCareers coursesCareers = _coursesInCareersService.GetAssignment(id);
+            if( coursesCareers != null )
+            {
+                return NotFound();
+            }
+            var response = new AssignationResponse(
+                coursesCareers.IdCourseInCareer,
+                coursesCareers.CourseId,
+                coursesCareers.CareerId,
+                coursesCareers.CreatedAt,
+                coursesCareers.LastTimeModified
+                );
+            return Ok(response );
+
+        }
+
         //No se ha terminado.
 
     }

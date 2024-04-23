@@ -46,8 +46,6 @@ namespace SistemaAsistencia.Models
             CareerId = careerId;
             CreatedAt = createdAt;
             LastTimeModified = lastTimeModified;
-            CreatedAt = createdAt;
-            LastTimeModified = lastTimeModified;
         }
     }
 }
