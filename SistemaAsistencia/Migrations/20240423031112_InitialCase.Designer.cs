@@ -11,8 +11,8 @@ using SistemaAsistencia.Models;
 namespace SistemaAsistencia.Migrations
 {
     [DbContext(typeof(SystemDatabaseContext))]
-    [Migration("20240422190737_CareerCourses")]
-    partial class CareerCourses
+    [Migration("20240423031112_InitialCase")]
+    partial class InitialCase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -80,13 +80,38 @@ namespace SistemaAsistencia.Migrations
                     b.Property<Guid>("CourseId")
                         .HasColumnType("char(36)");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("LastTimeModified")
+                        .HasColumnType("datetime(6)");
+
                     b.HasKey("IdCourseInCareer");
 
                     b.HasIndex("CareerId");
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("CoursesCareers");
+                    b.ToTable("CoursesInCareers");
+                });
+
+            modelBuilder.Entity("SistemaAsistencia.Models.Perro", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PerrosTabla");
                 });
 
             modelBuilder.Entity("SistemaAsistencia.Models.CoursesCareers", b =>

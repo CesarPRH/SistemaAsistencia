@@ -8,6 +8,9 @@ namespace SistemaAsistencia.Models
         public DbSet<Course> Courses { get; set; }
 
         public DbSet<CoursesCareers> CoursesInCareers { get; set; }
+
+        public DbSet<Perro> PerrosTabla { get; set; }
+
         public SystemDatabaseContext(DbContextOptions options) : base(options)
         {
 

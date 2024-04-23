@@ -13,7 +13,7 @@ builder.Services.AddScoped<ICareerService, CareerService>();
 builder.Services.AddScoped<IcourseService, CourseService>();
 builder.Services.AddDbContext<SystemDatabaseContext>(
     options => {        //TODO: Cambiar el Usuario a un usuario que no sea root.
-        options.UseMySQL("Server=localhost;Database=pruebabrotha;Uid=root;Pwd=sasa");
+        options.UseMySQL("Server=localhost;Database=Pruebados;Uid=root;Pwd=sasa");
       }
 );
 

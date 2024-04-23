@@ -14,7 +14,7 @@ namespace SistemaAsistencia.Controllers
     [ApiController]
     [Route("courses")]
 
-    //TODO: Implementar de una vez CoursesCareer para cuando el frontend este listo
+    //TODO: Implementar de una vez CoursesCareer aqui para cuando el frontend este listo
     public class CoursesControllers :ControllerBase
     {
         private readonly IcourseService _courseService;
