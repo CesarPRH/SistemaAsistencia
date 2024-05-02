@@ -9,7 +9,10 @@ namespace SistemaAsistencia.Models
 
         public DbSet<CoursesCareers> CoursesInCareers { get; set; }
 
-        public DbSet<Perro> PerrosTabla { get; set; }
+        //Esto solo era para prueba. Borrar porfis
+       // public DbSet<Perro> PerrosTabla { get; set; }
+
+        public DbSet<Permit> Permits { get; set; }
 
         public SystemDatabaseContext(DbContextOptions options) : base(options)
         {

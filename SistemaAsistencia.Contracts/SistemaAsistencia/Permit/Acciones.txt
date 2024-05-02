@@ -1,0 +1,6 @@
+
+ACCIONES:
+		Insertar Permiso LISTO
+		Respuesta de Permiso
+		Actualizar Permiso
+		(Solo esto)
